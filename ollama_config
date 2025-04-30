@@ -1,0 +1,20 @@
+# Use Llama 3.2 as the base model
+
+FROM llama3.2
+
+# Adjust model parameters
+
+PARAMETER temperature 0.5
+
+PARAMETER num_ctx 3072
+
+# Define model behavior
+
+SYSTEM "Summarize the abstract in a given scientific article. 
+Do not deviate from the results and only use the information provided in the given abstract. 
+If the given abstract is not available, just print out "Not available", nothing else. 
+Keep the summary short, and limit it to within 5 sentences or fewer. 
+Start your output with 'Summary:'. 
+In the summary, try to summarize the novelty in method, if available and its significance."
+
+# Customize the conversation template
